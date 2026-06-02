@@ -1,6 +1,6 @@
-import React from "react";
+
 import { useQuery } from "@tanstack/react-query";
-import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/card";
+import { Card, CardHeader, CardTitle, CardContent } from '../components/ui/card';
 import { Loader2 } from "lucide-react";
 import {
   LineChart,
@@ -14,7 +14,7 @@ import {
   Cell,
   Legend,
 } from "recharts";
-import { fetchDashboard } from "@/services/api";
+import { fetchDashboard } from '../lib/api';
 
 const COLORS = ["#4f46e5", "#10b981", "#f59e0b", "#ef4444"];
 
