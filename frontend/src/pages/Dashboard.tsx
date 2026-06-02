@@ -14,7 +14,7 @@ import {
   Cell,
   Legend,
 } from "recharts";
-import { fetchDashboard } from '../lib/api';
+import { fetchDashboard } from '../services/api';
 
 const COLORS = ["#4f46e5", "#10b981", "#f59e0b", "#ef4444"];
 
