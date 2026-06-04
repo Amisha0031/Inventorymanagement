@@ -29,7 +29,29 @@ const Products = () => {
       <div className="flex items-center justify-between">
         <h1 className="text-3xl font-bold tracking-tight">Products</h1>
         <Button>
-          <Plus className="mr-2 h-4 w-4" /> Add Product
+          <Button
+  onClick={async () => {
+    try {
+      await api.post('/products', {
+        name: 'Test Product',
+        sku: 'TEST001',
+        description: 'Test Description',
+        category: 'General',
+        price: 100,
+        quantity_in_stock: 10,
+      });
+
+      alert('Product Added Successfully');
+      window.location.reload();
+    } catch (error) {
+      console.error(error);
+      alert('Failed to add product');
+    }
+  }}
+>
+  <Plus className="mr-2 h-4 w-4" />
+  Add Product
+</Button>
         </Button>
       </div>
 
