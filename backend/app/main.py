@@ -3,7 +3,13 @@ from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 
 from app.core.config import settings
-from app.api.endpoints import products, customers, orders, auth
+from app.api.endpoints import (
+    products,
+    customers,
+    orders,
+    auth,
+    dashboard
+)
 from app.db.base import Base
 from app.db.session import engine
 from app.models.user import User
@@ -31,27 +37,37 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-# Routers
+# Auth Router
 app.include_router(
     auth.router,
     prefix=settings.API_V1_STR,
     tags=["auth"]
 )
 
+# Products Router
 app.include_router(
     products.router,
     prefix=settings.API_V1_STR,
     tags=["products"]
 )
 
+# Customers Router
 app.include_router(
     customers.router,
     prefix=settings.API_V1_STR,
     tags=["customers"]
 )
 
+# Orders Router
 app.include_router(
     orders.router,
     prefix=settings.API_V1_STR,
     tags=["orders"]
+)
+
+# Dashboard Router
+app.include_router(
+    dashboard.router,
+    prefix=settings.API_V1_STR,
+    tags=["dashboard"]
 )
