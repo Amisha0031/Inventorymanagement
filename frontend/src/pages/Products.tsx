@@ -43,10 +43,15 @@ const Products = () => {
 
       alert('Product Added Successfully');
       window.location.reload();
-    } catch (error) {
-      console.error(error);
-      alert('Failed to add product');
-    }
+    } catch (error: any) {
+  console.log(error);
+
+  if (error.response) {
+    alert(JSON.stringify(error.response.data));
+  } else {
+    alert(error.message);
+  }
+}
   }}
 >
   <Plus className="mr-2 h-4 w-4" />
