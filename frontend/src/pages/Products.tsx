@@ -34,7 +34,7 @@ const Products = () => {
     try {
       await api.post('/products', {
         name: 'Test Product',
-        sku: 'TEST001',
+        sku: 'TEST' + Date.now(),
         description: 'Test Description',
         category: 'General',
         price: 100,
